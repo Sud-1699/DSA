@@ -1,0 +1,4 @@
+#ignore vs code generated files
+.vscode/
+
+*.exe
