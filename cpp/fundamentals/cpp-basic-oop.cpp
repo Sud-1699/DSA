@@ -8,7 +8,7 @@ int add(int a, int b) {
 // Simple class
 class Calculator {
     public:
-    //A member function of class
+    // A member function of class to multiply two numbers
     int multiply(int a, int b) {
         return a * b;
     }
@@ -18,11 +18,11 @@ int main() {
     int x = 8;
     int y = 6;
 
-    //Calling global function add
+    // Using the standalone function 'add'
     int sum = add(x, y);
     std::cout << "Sum: " << sum << "\n";
 
-    //Creating class object calculator
+    // Using a class and member function
     Calculator calc;
     int product = calc.multiply(x, y);
     std::cout << "Product: " << product << "\n";
