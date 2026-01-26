@@ -1,5 +1,5 @@
 public class TowerOfHanoi {
-    //Time Complexity O(2power(n))
+    //Time Complexity O(2^n)
 
     private static void towerOfHanoi(int n, String src, String helper, String dest) {
         if(n == 1) {

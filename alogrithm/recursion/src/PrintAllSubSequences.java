@@ -1,6 +1,6 @@
 public class PrintAllSubSequences {
 
-    // Time Complexity O(2power(n))
+    // Time Complexity O(2^n)
 
     private static void subsequences(String str, int idx, String newString) {
         if(idx == str.length()) {

@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class PrintAllUniqueSubSequences {
 
-    // Time Complexity O(2power(n))
+    // Time Complexity O(2^n)
 
     private static void subsequences(String str, int idx, String newString, HashSet<String> set) {
         if(idx == str.length()) {
