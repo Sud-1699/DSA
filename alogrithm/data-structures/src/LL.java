@@ -1,0 +1,126 @@
+class LL {
+    Node head;
+    int size;
+
+    LL() {
+        this.size = 0;
+    }
+
+    class Node {
+        String data;
+        Node next;
+
+        Node(String data) {
+            this.data = data;
+            this.next = null;
+            size++;
+        }
+    }
+
+    public void addFirst(String data) {
+        Node node = new Node(data);
+
+        if(head == null) {
+            head = node;
+            return;
+        }
+
+        Node currentNode = head;
+
+        head = node;
+        head.next = currentNode;
+    }
+
+    public void addLast(String data) {
+        Node node = new Node(data);
+
+        if(head == null) {
+            head = node;
+            return;
+        }
+
+        if(head.next == null) {
+            head.next = node;
+        }
+
+        Node currentNode = head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+
+        currentNode.next = node;
+    }
+
+    public void deleteFirst() {
+        if(head == null) {
+            return;
+        }
+
+        /*if(head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node currentNode = head;
+        head = currentNode.next;*/
+        size--;
+        head = head.next;
+    }
+
+    public void deleteLast() {
+        if(head == null) {
+            return;
+        }
+
+        size--;
+        if(head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node secondLastNode = head;
+        Node lastNode = secondLastNode.next;
+        while (lastNode.next != null) {
+            lastNode = lastNode.next;
+            secondLastNode = secondLastNode.next;
+        }
+
+        secondLastNode.next = null;
+    }
+
+    public void printList() {
+        Node currentNode = head;
+
+        while(currentNode != null) {
+            System.out.print(currentNode.data + " -> ");
+            currentNode = currentNode.next;
+        }
+
+        System.out.print("null");
+        System.out.println("");
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public static void main(String[] args) {
+        LL linkedList = new LL();
+
+        linkedList.addFirst("a");
+        linkedList.addFirst("is");
+        linkedList.addFirst("This");
+
+        linkedList.printList();
+
+        linkedList.addLast("Linked List");
+        linkedList.printList();
+
+        linkedList.deleteFirst();
+        linkedList.printList();
+
+        linkedList.deleteLast();
+        linkedList.printList();
+        System.out.println(linkedList.getSize());
+    }
+}
