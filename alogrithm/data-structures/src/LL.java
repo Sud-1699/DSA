@@ -41,6 +41,7 @@ class LL {
 
         if(head.next == null) {
             head.next = node;
+            return;
         }
 
         Node currentNode = head;
@@ -88,6 +89,37 @@ class LL {
         secondLastNode.next = null;
     }
 
+    public void reverseIterator() {
+        if(head == null || head.next == null) {
+            return;
+        }
+
+        Node prevNode = head;
+        Node currentNode = head.next;
+        while (currentNode != null) {
+            Node nextNode = currentNode.next;
+            currentNode.next = prevNode;
+
+            prevNode = currentNode;
+            currentNode = nextNode;
+        }
+
+        head.next = null;
+        head = prevNode;
+    }
+
+    public Node reverseRecursion(Node head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+
+        Node newHead = reverseRecursion(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
+    }
+
     public void printList() {
         Node currentNode = head;
 
@@ -107,7 +139,7 @@ class LL {
     public static void main(String[] args) {
         LL linkedList = new LL();
 
-        linkedList.addFirst("a");
+        /*linkedList.addFirst("a");
         linkedList.addFirst("is");
         linkedList.addFirst("This");
 
@@ -121,6 +153,17 @@ class LL {
 
         linkedList.deleteLast();
         linkedList.printList();
-        System.out.println(linkedList.getSize());
+        System.out.println(linkedList.getSize());*/
+
+        linkedList.addLast("1");
+        linkedList.addLast("2");
+        linkedList.addLast("3");
+        linkedList.addLast("4");
+
+        linkedList.printList();
+
+//        linkedList.reverseIterator();
+        linkedList.head = linkedList.reverseRecursion(linkedList.head);
+        linkedList.printList();
     }
 }
